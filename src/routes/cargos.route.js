@@ -26,20 +26,19 @@ module.exports = function (app) {
     });
 
     app.post('/cargos/salvar', function (req, res) {  //aqui da Cannot POST /cargos/novo/
-        //console.log(req)
-        res.send(req.body)
-        console.log(req.body)
-        /* var conexao = new Conexao()
-         const cargos = new CargosDAO()
-         console.log(req.params)
-         var cargo = req.body
- 
-         cargos.cadastrarCargo(conexao, cargo, (err, result) => {
-             if (err) {
-                 res.json(err)
-             } else {
-                 res.send(result)
-             }
-         })*/
+        //res.send(req.body)
+        //console.log(req.body)
+        var conexao = new Conexao()
+        const cargos = new CargosDAO()
+
+        var cargo = req.body
+
+        cargos.cadastrarCargo(conexao, cargo, (err, result) => {
+            if (err) {
+                res.json(err)
+            } else {
+                res.send(result)
+            }
+        })
     });
 } 
