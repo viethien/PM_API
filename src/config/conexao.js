@@ -26,7 +26,7 @@ class Conexao {
         var mensagem = err;
         switch (mensagem) {
             case 1451:
-                msg = "Já Existem Usuários Vinculados a este cargo, você não pode excluí-lo"
+                msg = "Já existem entidades vinculadas a este este registro, você não pode excluí-lo"
                 return msg
                 break;
             default:
