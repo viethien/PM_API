@@ -3,16 +3,16 @@ var express = require('express'),
     app = express();
 
 var consign = require('consign');
-
-
+//app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.json())
 consign()
     .include('./src/routes')
-    .then('./src/config/db.js')
-    .then('./src/models')
+    // .then('./src/config/db.js')
+    // .then('./src/models')
     .into(app);
 
-console.log("I'm on server.js: ", app.src.models)
-app.use(bodyparser.urlencoded({ extended: true }));
+
+
 
 app.listen(3000, function () {
     console.log("Servidor ON");
