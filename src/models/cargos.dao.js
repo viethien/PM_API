@@ -31,7 +31,13 @@ class CargosDAO {
         conexao.connection.end()
     }
     atualizaCargo(conexao, cargo, callback) {
-
+        console.log(cargo.cargo)
+        conexao.connection.query('UPDATE cargos SET descricao = ?, nome = ?, sigla = ? WHERE cargo = ?',
+            [cargo.descricao,
+            cargo.nome,
+            cargo.sigla,
+            cargo.cargo],
+            callback)
     }
 }
 module.exports = { CargosDAO }

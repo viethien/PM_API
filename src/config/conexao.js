@@ -21,25 +21,26 @@ class Conexao {
         })
     }
 
-    trataErros(errnumber, errObj) {
-        var msg
-        var mensagem = err;
-        switch (mensagem) {
+    trataErros(errorObj) {
+        console.log("To aqui", errorObj)
+        var msgUsuario
+        switch (errorObj.errno) {
             case 1451:
-                msg = "Já existem entidades vinculadas a este este registro, você não pode excluí-lo"
-                return msg
+                msgUsuario = "Já existem entidades vinculadas a este este registro, você não pode excluí-lo"
                 break;
             default:
-                msg = "Erro não mapeado. COD:" + errorObj.errno + "Mensagem: " + errObj.message;
+                msgUsuario = "Erro não mapeado. COD:" + errorObj.errno + "Mensagem: " + errorObj.message;
         }
+        return msgUsuario
     }
 
-    trataSucesso(linhas_afetadas) {
+    trataSucesso(result) {
+        console.log(result.affectedRows)
         let msgSuccess;
-        if (linhas_afetadas >= 1) {
-            msgSuccess = "Procedimento executado com sucesso, " + linhas_afetadas + " linhas afetadas."
-        } else if (linhas_afetadas == 0) {
-            msgSuccess = "Não existem dados para os parametros escolhidos, linhas afetadas: " + linhas_afetadas;
+        if (result.affectedRows >= 1) {
+            msgSuccess = "Procedimento executado com sucesso, " + result.affectedRows + " linhas afetadas."
+        } else if (result.affectedRows == 0) {
+            msgSuccess = "Não existem dados para os parametros escolhidos, linhas afetadas: " + result.affectedRows;
         }
         return msgSuccess
     }
