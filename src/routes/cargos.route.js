@@ -26,18 +26,33 @@ module.exports = function (app) {
     });
 
     app.post('/cargos/salvar', function (req, res) {  //aqui da Cannot POST /cargos/novo/
-        //res.send(req.body)
-        //console.log(req.body)
+
         var conexao = new Conexao()
         const cargos = new CargosDAO()
-
+        console.log(req.body)
         var cargo = req.body
 
         cargos.cadastrarCargo(conexao, cargo, (err, result) => {
             if (err) {
-                res.json(err)
+                res.json(conexao.trataErros(err.errno))
             } else {
-                res.send(result)
+                res.json(conexao.trataSucesso(result.affectedRows))
+            }
+        })
+    });
+
+    app.delete('/cargos/delete/:cargo', function (req, res) {  //aqui da Cannot POST /cargos/novo/
+        var conexao = new Conexao()
+        const cargos = new CargosDAO()
+
+        var cargo = req.params.cargo
+
+        cargos.deleteCargo(conexao, cargo, (err, result) => {
+            if (err) {
+                res.json(conexao.trataErros(err.errno, err))
+            } else {
+                //res.json(result)
+                res.json(conexao.trataSucesso(result.affectedRows))
             }
         })
     });
