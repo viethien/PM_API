@@ -11,12 +11,8 @@ app.use(validator())
 consign()
     .include('./src/routes')
     .then('./src/controllers')
-    // .then('./src/config/db.js')
-    .then('./src/models')
-    .then('./src/utils')
+    .then('./src/config/conexao.js')
     .into(app);
-
-
 
 app.listen(3000, function () {
     console.log("Servidor ON");

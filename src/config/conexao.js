@@ -23,13 +23,18 @@ class Conexao {
 
     trataErros(errorObj) {
         console.log("To aqui", errorObj)
-        var msgUsuario
+        let msgUsuario
+        let msg;
         switch (errorObj.errno) {
             case 1451:
-                msgUsuario = "Já existem entidades vinculadas a este este registro, você não pode excluí-lo"
+                msgUsuario = {
+                    msg: "Já existem entidades vinculadas a este este registro, você não pode excluí-lo"
+                }
                 break;
             default:
-                msgUsuario = "Erro não mapeado. COD:" + errorObj.errno + "Mensagem: " + errorObj.message;
+                msgUsuario = {
+                    msg: "Erro não mapeado. COD:" + errorObj.errno + "Mensagem: " + errorObj.message
+                }
         }
         return msgUsuario
     }
@@ -37,10 +42,15 @@ class Conexao {
     trataSucesso(result) {
         console.log(result.affectedRows)
         let msgSuccess;
+        let msg
         if (result.affectedRows >= 1) {
-            msgSuccess = "Procedimento executado com sucesso, " + result.affectedRows + " linhas afetadas."
+            msgSuccess = {
+                msg: "Procedimento executado com sucesso, " + result.affectedRows + " linhas afetadas. "
+            }
         } else if (result.affectedRows == 0) {
-            msgSuccess = "Não existem dados para os parametros escolhidos, linhas afetadas: " + result.affectedRows;
+            msgSuccess = {
+                msg: "Não existem dados para os parametros escolhidos, linhas afetadas: " + result.affectedRows
+            }
         }
         return msgSuccess
     }

@@ -1,6 +1,5 @@
 module.exports = function (app) {
-    app.post('/autenticar'), (req, res) => {
-        console.log('to aqui')
-        res.send("to aqui")
-    }
+    app.post('/autenticar', function (req, res) {
+        app.src.controllers.autenticacao.autenticar(app, req, res)
+    });
 }

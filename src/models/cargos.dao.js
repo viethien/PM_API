@@ -13,13 +13,7 @@ class CargosDAO {
         conexao.connection.end()
     }
 
-    cadastrarCargo(conexao, cargo, callback) {
-        conexao.connection.query("insert into cargos set ?",
-            cargo,
-            callback)
-        conexao.connection.end()
-    }
-    cadastrarCargo(conexao, cargo, callback) {
+    salvarCargo(conexao, cargo, callback) {
         conexao.connection.query("insert into cargos set ?",
             cargo,
             callback)
