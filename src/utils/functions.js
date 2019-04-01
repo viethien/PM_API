@@ -15,8 +15,7 @@ module.exports.validaCargo = function (app, req) {
     }
 }
 
-module.exports.validaUsuario = function (app, req) {
-    console.log(req.body)
+module.exports.validaUsuarioLogin = function (app, req) {
     req.assert('email', 'Preencha o campo E-mail').notEmpty()
     req.assert('email', 'E-mail inválido').isEmail()
     req.assert('senha', 'Preencha o campo Senha').notEmpty()

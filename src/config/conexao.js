@@ -4,7 +4,7 @@ class Conexao {
     constructor() {
         this.connection = mysql.createConnection({
             host: 'localhost',
-            user: 'root',
+            user: 'API',
             password: '',
             database: 'agimplant'
         });
@@ -22,37 +22,37 @@ class Conexao {
     }
 
     trataErros(errorObj) {
-        console.log("To aqui", errorObj)
-        let msgUsuario
         let msg;
         switch (errorObj.errno) {
             case 1451:
-                msgUsuario = {
+                msg = {
                     msg: "Já existem entidades vinculadas a este este registro, você não pode excluí-lo"
                 }
                 break;
             default:
-                msgUsuario = {
+                msg = {
                     msg: "Erro não mapeado. COD:" + errorObj.errno + "Mensagem: " + errorObj.message
                 }
         }
-        return msgUsuario
+        return msg
     }
 
     trataSucesso(result) {
-        console.log(result.affectedRows)
-        let msgSuccess;
-        let msg
+        let msg;
         if (result.affectedRows >= 1) {
-            msgSuccess = {
+            msg = {
                 msg: "Procedimento executado com sucesso, " + result.affectedRows + " linhas afetadas. "
             }
         } else if (result.affectedRows == 0) {
-            msgSuccess = {
+            msg = {
                 msg: "Não existem dados para os parametros escolhidos, linhas afetadas: " + result.affectedRows
             }
+        } else if (result.length <= 0) {
+            msg = {
+                msg: "Não foi encontrada nenhuma informação com os parametros informados"
+            }
         }
-        return msgSuccess
+        return msg
     }
 }
 
