@@ -1,5 +1,6 @@
 module.exports = function (app) {
     app.get('/cargos', function (req, res) {
+        //  if(req.session.visualizacargos)
         app.src.controllers.cargos.getCargos(app, req, res)
     });
     app.get('/cargos/detalhe/:cargo', function (req, res) {

@@ -1,4 +1,5 @@
 module.exports.getCargos = function (app, req, res) {
+
     const conexao = new app.src.config.conexao.Conexao(),
         cargos = new app.src.models.cargosDAO.CargosDAO()
     cargos.getCargos(conexao, (err, result) => {
