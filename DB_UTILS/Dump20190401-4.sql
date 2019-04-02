@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `cargos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `cargos` (
   `cargo` char(36) NOT NULL,
   `descricao` tinytext,
@@ -43,13 +43,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_cargos` BEFORE INSERT ON `cargos` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_cargos` BEFORE INSERT ON `cargos` FOR EACH ROW BEGIN
   IF new.cargo IS NULL THEN
     SET new.cargo = uuid();
   END IF;
@@ -66,7 +66,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `clientes` (
   `cliente` char(36) NOT NULL,
   `codigo` varchar(15) NOT NULL,
@@ -92,13 +92,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_clientes` BEFORE INSERT ON `clientes` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_clientes` BEFORE INSERT ON `clientes` FOR EACH ROW BEGIN
   IF new.cliente IS NULL THEN
     SET new.cliente = uuid();
   END IF;
@@ -115,7 +115,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `departamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `departamentos` (
   `departamento` char(36) NOT NULL,
   `nome` varchar(30) DEFAULT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE `departamentos` (
   `id_responsavel` char(36) DEFAULT NULL,
   PRIMARY KEY (`departamento`),
   KEY `fk_responsavel_DPTO` (`id_responsavel`),
-  CONSTRAINT `fk_responsavel_DPTO` FOREIGN KEY (`id_responsavel`) REFERENCES `agimplant`.`usuarios` (`usuario`)
+  CONSTRAINT `fk_responsavel_DPTO` FOREIGN KEY (`id_responsavel`) REFERENCES `projectmanager`.`usuarios` (`usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -139,13 +139,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_departamentos` BEFORE INSERT ON `departamentos` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_departamentos` BEFORE INSERT ON `departamentos` FOR EACH ROW BEGIN
   IF new.departamento IS NULL THEN
     SET new.departamento = uuid();
   END IF;
@@ -162,7 +162,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `enderecos_clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `enderecos_clientes` (
   `id_cliente` char(36) NOT NULL,
   `logradouro` varchar(100) DEFAULT NULL,
@@ -194,13 +194,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_enderecos` BEFORE INSERT ON `enderecos_clientes` FOR EACH ROW BEGIN 
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_enderecos` BEFORE INSERT ON `enderecos_clientes` FOR EACH ROW BEGIN 
     SET NEW.endereco = UUID(); 
 END */;;
 DELIMITER ;
@@ -215,7 +215,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `equipes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `equipes` (
   `equipe` char(36) NOT NULL,
   `id_departamento` char(36) DEFAULT NULL,
@@ -228,9 +228,9 @@ CREATE TABLE `equipes` (
   KEY `FK_responsavel_dept` (`id_responsavel`),
   KEY `FK_dept` (`id_departamento`),
   CONSTRAINT `FK_dept` FOREIGN KEY (`id_departamento`) REFERENCES `departamentos` (`departamento`),
-  CONSTRAINT `FK_responsavel_dept` FOREIGN KEY (`id_responsavel`) REFERENCES `agimplant`.`usuarios` (`usuario`),
+  CONSTRAINT `FK_responsavel_dept` FOREIGN KEY (`id_responsavel`) REFERENCES `projectmanager`.`usuarios` (`usuario`),
   CONSTRAINT `fk_departamento` FOREIGN KEY (`id_departamento`) REFERENCES `departamentos` (`departamento`),
-  CONSTRAINT `fk_responsavel` FOREIGN KEY (`id_responsavel`) REFERENCES `agimplant`.`usuarios` (`usuario`)
+  CONSTRAINT `fk_responsavel` FOREIGN KEY (`id_responsavel`) REFERENCES `projectmanager`.`usuarios` (`usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -246,13 +246,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_equipes` BEFORE INSERT ON `equipes` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_equipes` BEFORE INSERT ON `equipes` FOR EACH ROW BEGIN
   IF new.equipe IS NULL THEN
     SET new.equipe = uuid();
   END IF;
@@ -269,7 +269,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `etapas_projetos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `etapas_projetos` (
   `etapa` char(36) NOT NULL,
   `id_projeto` char(36) DEFAULT NULL,
@@ -293,13 +293,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `befora_insert_etapasprojetos` BEFORE INSERT ON `etapas_projetos` FOR EACH ROW BEGIN 
+/*!50003 CREATE*/  /*!50003 TRIGGER `befora_insert_etapasprojetos` BEFORE INSERT ON `etapas_projetos` FOR EACH ROW BEGIN 
     SET NEW.etapa = UUID(); 
 END */;;
 DELIMITER ;
@@ -314,7 +314,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `municipios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `municipios` (
   `municipio` char(36) NOT NULL,
   `codigo` int(11) NOT NULL,
@@ -336,13 +336,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_municipio` BEFORE INSERT ON `municipios` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_municipio` BEFORE INSERT ON `municipios` FOR EACH ROW BEGIN
   IF new.municipio IS NULL THEN
     SET new.municipio = uuid();
   END IF;
@@ -359,7 +359,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `participantes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `participantes` (
   `id_tarefa` char(36) DEFAULT NULL,
   `id_usuario` char(36) DEFAULT NULL,
@@ -370,8 +370,8 @@ CREATE TABLE `participantes` (
   KEY `FK_tarefa` (`id_tarefa`),
   KEY `FK_usuario` (`id_usuario`),
   CONSTRAINT `FK_tarefa` FOREIGN KEY (`id_tarefa`) REFERENCES `tarefas` (`tarefa`),
-  CONSTRAINT `FK_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `agimplant`.`usuarios` (`usuario`),
-  CONSTRAINT `fk_convidado` FOREIGN KEY (`id_usuario`) REFERENCES `agimplant`.`usuarios` (`usuario`),
+  CONSTRAINT `FK_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `projectmanager`.`usuarios` (`usuario`),
+  CONSTRAINT `fk_convidado` FOREIGN KEY (`id_usuario`) REFERENCES `projectmanager`.`usuarios` (`usuario`),
   CONSTRAINT `fk_evento` FOREIGN KEY (`id_tarefa`) REFERENCES `tarefas` (`tarefa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -387,13 +387,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `befor_insert_participantes` BEFORE INSERT ON `participantes` FOR EACH ROW BEGIN 
+/*!50003 CREATE*/  /*!50003 TRIGGER `befor_insert_participantes` BEFORE INSERT ON `participantes` FOR EACH ROW BEGIN 
     SET NEW.participante = UUID(); 
 END */;;
 DELIMITER ;
@@ -408,7 +408,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `perfis_usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `perfis_usuarios` (
   `perfil` char(36) NOT NULL,
   `nome_perfil` varchar(45) NOT NULL,
@@ -437,13 +437,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_perfisusuarios` BEFORE INSERT ON `perfis_usuarios` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_perfisusuarios` BEFORE INSERT ON `perfis_usuarios` FOR EACH ROW BEGIN
   IF new.perfil IS NULL THEN
     SET new.perfil = uuid();
   END IF;
@@ -460,7 +460,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `projetos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `projetos` (
   `projeto` char(36) NOT NULL,
   `descricao` varchar(100) DEFAULT NULL,
@@ -473,7 +473,7 @@ CREATE TABLE `projetos` (
   KEY `responsavel` (`responsavel`),
   KEY `FK_cliente_proj` (`id_cliente`),
   CONSTRAINT `FK_cliente_proj` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`cliente`),
-  CONSTRAINT `projetos_ibfk_1` FOREIGN KEY (`responsavel`) REFERENCES `agimplant`.`usuarios` (`usuario`)
+  CONSTRAINT `projetos_ibfk_1` FOREIGN KEY (`responsavel`) REFERENCES `projectmanager`.`usuarios` (`usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -488,13 +488,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_projetos` BEFORE INSERT ON `projetos` FOR EACH ROW SET new.projeto = uuid() */;;
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_projetos` BEFORE INSERT ON `projetos` FOR EACH ROW SET new.projeto = uuid() */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -507,7 +507,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `salas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `salas` (
   `sala` char(36) DEFAULT NULL,
   `numero` int(11) DEFAULT NULL,
@@ -529,13 +529,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_salas` BEFORE INSERT ON `salas` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_salas` BEFORE INSERT ON `salas` FOR EACH ROW BEGIN
   IF new.sala IS NULL THEN
     SET new.sala = uuid();
   END IF;
@@ -552,7 +552,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `sistemas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `sistemas` (
   `descricao` varchar(30) DEFAULT NULL,
   `equipe_que_atende` char(36) DEFAULT NULL,
@@ -575,13 +575,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_unicode_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `before_insert_sistemas` BEFORE INSERT ON `sistemas` FOR EACH ROW BEGIN
+/*!50003 CREATE*/  /*!50003 TRIGGER `before_insert_sistemas` BEFORE INSERT ON `sistemas` FOR EACH ROW BEGIN
   IF new.sistema IS NULL THEN
     SET new.sistema = uuid();
   END IF;
@@ -598,7 +598,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `tarefas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `tarefas` (
   `tarefa` char(36) NOT NULL,
   `id_cliente` char(36) DEFAULT '<Cliente Não definido>',
@@ -628,13 +628,13 @@ CREATE TABLE `tarefas` (
   KEY `fk_criador` (`id_criador`),
   KEY `fk_sistema` (`id_sistema`),
   KEY `fk_solicitante` (`id_solicitante`),
-  CONSTRAINT `fk_aprovador` FOREIGN KEY (`id_aprovador`) REFERENCES `agimplant`.`usuarios` (`usuario`),
+  CONSTRAINT `fk_aprovador` FOREIGN KEY (`id_aprovador`) REFERENCES `projectmanager`.`usuarios` (`usuario`),
   CONSTRAINT `fk_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`cliente`),
-  CONSTRAINT `fk_criador` FOREIGN KEY (`id_criador`) REFERENCES `agimplant`.`usuarios` (`usuario`),
+  CONSTRAINT `fk_criador` FOREIGN KEY (`id_criador`) REFERENCES `projectmanager`.`usuarios` (`usuario`),
   CONSTRAINT `fk_endcliente` FOREIGN KEY (`id_enderecocliente`) REFERENCES `enderecos_clientes` (`id_cliente`),
   CONSTRAINT `fk_sistema` FOREIGN KEY (`id_sistema`) REFERENCES `sistemas` (`sistema`),
-  CONSTRAINT `fk_solicitante` FOREIGN KEY (`id_solicitante`) REFERENCES `agimplant`.`usuarios` (`usuario`),
-  CONSTRAINT `fk_tipoagendamento` FOREIGN KEY (`id_tipotarefa`) REFERENCES `agimplant`.`tipos_tarefas` (`id`),
+  CONSTRAINT `fk_solicitante` FOREIGN KEY (`id_solicitante`) REFERENCES `projectmanager`.`usuarios` (`usuario`),
+  CONSTRAINT `fk_tipoagendamento` FOREIGN KEY (`id_tipotarefa`) REFERENCES `projectmanager`.`tipos_tarefas` (`id`),
   CONSTRAINT `tarefas_ibfk_1` FOREIGN KEY (`id_projeto`) REFERENCES `projetos` (`projeto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -650,13 +650,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `befora_insert_tarefas` BEFORE INSERT ON `tarefas` FOR EACH ROW BEGIN 
+/*!50003 CREATE*/  /*!50003 TRIGGER `befora_insert_tarefas` BEFORE INSERT ON `tarefas` FOR EACH ROW BEGIN 
     SET NEW.tarefa = UUID(); 
 END */;;
 DELIMITER ;
@@ -671,7 +671,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `telefones_clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `telefones_clientes` (
   `ddd` varchar(3) DEFAULT NULL,
   `telefone` varchar(9) DEFAULT NULL,
@@ -697,13 +697,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `befora_insert_telefones_clientes` BEFORE INSERT ON `telefones_clientes` FOR EACH ROW BEGIN 
+/*!50003 CREATE*/  /*!50003 TRIGGER `befora_insert_telefones_clientes` BEFORE INSERT ON `telefones_clientes` FOR EACH ROW BEGIN 
     SET NEW.id_telefone = UUID(); 
 END */;;
 DELIMITER ;
@@ -718,7 +718,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `tipos_tarefas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `tipos_tarefas` (
   `id` char(36) NOT NULL,
   `codigo` varchar(15) DEFAULT NULL,
@@ -727,7 +727,7 @@ CREATE TABLE `tipos_tarefas` (
   `precisaaprovacao` tinyint(1) NOT NULL DEFAULT '0',
   `interno` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -741,13 +741,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `befora_insert_tipos_tarefas` BEFORE INSERT ON `tipos_tarefas` FOR EACH ROW BEGIN 
+/*!50003 CREATE*/  /*!50003 TRIGGER `befora_insert_tipos_tarefas` BEFORE INSERT ON `tipos_tarefas` FOR EACH ROW BEGIN 
     SET NEW.id = UUID(); 
 END */;;
 DELIMITER ;
@@ -762,7 +762,7 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `usuarios` (
   `usuario` char(36) NOT NULL,
   `id_equipe` char(36) DEFAULT NULL,
@@ -807,13 +807,13 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `befora_insert_usuarios` BEFORE INSERT ON `usuarios` FOR EACH ROW BEGIN 
+/*!50003 CREATE*/  /*!50003 TRIGGER `befora_insert_usuarios` BEFORE INSERT ON `usuarios` FOR EACH ROW BEGIN 
     SET NEW.usuario = UUID(); 
 END */;;
 DELIMITER ;
