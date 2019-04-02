@@ -3,10 +3,10 @@ const mysql = require('mysql');
 class Conexao {
     constructor() {
         this.connection = mysql.createConnection({
-            host: 'localhost',
+            host: 'mysql995.umbler.com',
             user: 'API',
-            password: '',
-            database: 'agimplant'
+            password: 'kUJgd2AMBbR7VNE',
+            database: 'projectmanager'
         });
         this.connect()
     }
