@@ -5,7 +5,8 @@ module.exports = function (app) {
      } else{
          let msg = {
              msg: "Acesso Negado"
-         }
+         }        
+         res.send(msg) 
      }
         
     });
