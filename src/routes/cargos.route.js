@@ -1,7 +1,13 @@
 module.exports = function (app) {
     app.get('/cargos', function (req, res) {
-        //  if(req.session.visualizacargos)
+     if(req.session.visualizacargos){
         app.src.controllers.cargos.getCargos(app, req, res)
+     } else{
+         let msg = {
+             msg: "Acesso Negado"
+         }
+     }
+        
     });
     app.get('/cargos/detalhe/:cargo', function (req, res) {
         app.src.controllers.cargos.getCargo(app, req, res)
