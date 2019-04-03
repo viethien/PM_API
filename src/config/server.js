@@ -2,7 +2,8 @@ var express = require('express'),
     bodyparser = require('body-parser'),
     validator = require('express-validator'),
     session = require('express-session'),
-    app = express();
+    cors = require('cors')
+app = express();
 
 var consign = require('consign');
 app.use(bodyparser.urlencoded({ extended: true }));
@@ -22,7 +23,7 @@ consign()
     .then('./src/utils')
     .into(app);
 
-
+app.use(cors())
 app.listen(3000, function () {
     console.log("Servidor ON");
 });
