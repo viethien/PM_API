@@ -12,7 +12,6 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "consign": "^0.1.6",
-    "cors": "^2.8.5",
     "express": "^4.14.0",
     "express-session": "^1.15.6",
     "express-validator": "^5.3.1",
